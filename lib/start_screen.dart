@@ -15,18 +15,19 @@ class StartScreen extends StatelessWidget {
       children: [
         Image.asset(
           'assets/images/cine_quiz_logo.png',
-          width: 350,
+          width: 380,
         ),
         const SizedBox(
           height: 30,
         ),
-        ElevatedButton(
+        ElevatedButton.icon(
             onPressed: handleClick,
             style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 124, 10, 115),
+                backgroundColor: const Color.fromARGB(255, 111, 10, 124),
                 textStyle: const TextStyle(fontSize: 18),
-                padding: const EdgeInsets.fromLTRB(30, 20, 30, 20)),
-            child: const Text('Empezar'))
+                padding: const EdgeInsets.fromLTRB(25, 20, 25, 20)),
+            icon: const Icon(Icons.arrow_right_alt),
+            label: const Text('Empezar'))
       ],
     ));
   }
