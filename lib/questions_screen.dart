@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'package:quizz/data/questions.dart';
+
 import 'package:quizz/answer_button.dart';
 
 class QuestionsScreen extends StatefulWidget {
@@ -11,25 +15,61 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
+  var currentQuestionIndex = 0;
+
+  void answerQuestion() {
+    setState(() {
+      currentQuestionIndex++;
+    });
+  }
+
   @override
   Widget build(context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+    final currentQuestion = questions[currentQuestionIndex];
+
+    final answers = currentQuestion.getShuffledAnswers().map((answer) {
+      return Column(
         children: [
-          const Text(
-            'Pregunta',
-            style: TextStyle(color: Colors.black, fontSize: 26),
+          AnswerButton(
+            answerText: answer,
+            onPressed: () {
+              if (currentQuestionIndex < questions.length - 1) {
+                answerQuestion();
+              }
+            },
           ),
           const SizedBox(
-            height: 30,
+            height: 20,
           ),
-          AnswerButton(
-            answerText: 'Respuesta 1',
-            onPressed: () {},
-          )
         ],
+      );
+    });
+
+    return SizedBox(
+      width: double.infinity,
+      child: Container(
+        margin: const EdgeInsets.all(30),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const SizedBox(
+              height: 120,
+            ),
+            Text(
+              currentQuestion.text,
+              style: GoogleFonts.montserratAlternates(
+                  color: const Color.fromARGB(255, 14, 14, 14),
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+              height: 100,
+            ),
+            ...answers,
+          ],
+        ),
       ),
     );
   }
