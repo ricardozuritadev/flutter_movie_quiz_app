@@ -6,7 +6,9 @@ import 'package:quizz/data/questions.dart';
 import 'package:quizz/answer_button.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  const QuestionsScreen({super.key, required this.onSelectAnswer});
+
+  final void Function(String) onSelectAnswer;
 
   @override
   State<QuestionsScreen> createState() {
@@ -17,7 +19,8 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   var currentQuestionIndex = 0;
 
-  void answerQuestion() {
+  void answerQuestion(String selectedAnswer) {
+    widget.onSelectAnswer(selectedAnswer);
     setState(() {
       currentQuestionIndex++;
     });
@@ -33,9 +36,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           AnswerButton(
             answerText: answer,
             onPressed: () {
-              if (currentQuestionIndex < questions.length - 1) {
-                answerQuestion();
-              }
+              answerQuestion(answer);
             },
           ),
           const SizedBox(
@@ -60,7 +61,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               currentQuestion.text,
               style: GoogleFonts.montserratAlternates(
                   color: const Color.fromARGB(255, 14, 14, 14),
-                  fontSize: 24,
+                  fontSize: 22,
                   fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
