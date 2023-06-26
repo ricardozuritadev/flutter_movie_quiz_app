@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quizz/data/questions.dart';
 
 import 'package:quizz/questions_screen.dart';
+import 'package:quizz/results_screen.dart';
 import 'package:quizz/start_screen.dart';
 
 class Quiz extends StatefulWidget {
@@ -31,13 +32,22 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  void resetQuiz() {
+    setState(() {
+      activeScreen = StartScreen(switchScreen);
+    });
+    selectedAnswers.clear();
+  }
+
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
 
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        activeScreen = StartScreen(switchScreen);
-        selectedAnswers.clear();
+        activeScreen = ResultScreen(
+          chosenAnswers: selectedAnswers,
+          resetQuiz: resetQuiz,
+        );
       });
     }
   }
