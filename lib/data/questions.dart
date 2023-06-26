@@ -7,7 +7,7 @@ const questions = [
   ),
   QuizQuestion(
     '¿Qué actor interpreta a Tony Stark/Iron Man en el Universo Cinematográfico de Marvel?',
-    ['Chris Evans', 'Robert Downey Jr.', 'Chris Hemsworth', 'Tom Hiddleston'],
+    ['Robert Downey Jr.', 'Chris Evans', 'Chris Hemsworth', 'Tom Hiddleston'],
   ),
   QuizQuestion(
     '¿Cuál de las siguientes películas es una obra de Stanley Kubrick?',
@@ -25,21 +25,21 @@ const questions = [
   QuizQuestion(
     '¿Cuál de las siguientes películas es una adaptación de una novela de J.R.R. Tolkien?',
     [
+      '"The Lord of the Rings: The Fellowship of the Ring"',
       '"Harry Potter and the Chamber of Secrets"',
       '"The Hunger Games"',
-      '"The Lord of the Rings: The Fellowship of the Ring"',
       '"The Matrix"'
     ],
   ),
   QuizQuestion(
     '¿Qué actor interpretó a James Bond en la película "Casino Royale"?',
-    ['Pierce Brosnan', 'Daniel Craig', 'Sean Connery', 'Roger Moore'],
+    ['Daniel Craig', 'Pierce Brosnan', 'Sean Connery', 'Roger Moore'],
   ),
   QuizQuestion(
     '¿Cuál de las siguientes películas fue dirigida por Quentin Tarantino?',
     [
-      '"The Revenant"',
       '"Django Unchained"',
+      '"The Revenant"',
       '"La La Land"',
       '"The Social Network"'
     ],
@@ -47,9 +47,9 @@ const questions = [
   QuizQuestion(
     '¿Cuál es la película de Martin Scorsese que presenta a un corredor de bolsa corrupto interpretado por Leonardo DiCaprio?',
     [
+      '"The Wolf of Wall Street"',
       '"Goodfellas"',
       '"The Departed"',
-      '"The Wolf of Wall Street"',
       '"Taxi Driver"'
     ],
   ),
@@ -93,10 +93,10 @@ const questions = [
   QuizQuestion(
     '¿Cuál de las siguientes películas fue dirigida por James Cameron?',
     [
+      '"Avatar"',
       '"The Lord of the Rings: The Return of the King"',
       '"The Dark Knight"',
-      '"The Matrix"',
-      '"Avatar"'
+      '"The Matrix"'
     ],
   ),
 ];
