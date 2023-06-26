@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:quizz/data/questions.dart';
-import 'package:quizz/questions_summary.dart';
+import 'package:quizz/questions_summary/questions_summary.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen(
@@ -61,10 +61,17 @@ class ResultScreen extends StatelessWidget {
             const SizedBox(
               height: 50,
             ),
-            TextButton(
-              onPressed: resetQuiz,
-              child: const Text('Reiniciar Quiz'),
-            )
+            ElevatedButton.icon(
+                onPressed: resetQuiz,
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 111, 10, 124),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    textStyle: const TextStyle(fontSize: 18),
+                    padding: const EdgeInsets.fromLTRB(25, 20, 25, 20)),
+                icon: const Icon(Icons.restart_alt),
+                label: const Text('Reiniciar quizz'))
           ],
         ),
       ),
